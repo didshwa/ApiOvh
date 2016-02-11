@@ -1,11 +1,11 @@
 <?php
 class Domains{
   var $ovh;
-	public function __construct($_ovh)
-	{
-		$this->ovh = $_ovh;
-	}
-	public function getdomains()
+  public function __construct($_ovh)
+  {
+    $this->ovh = $_ovh;
+  }
+  public function getdomains()
   {	
     $res = $this->ovh->get('/domain');
     return $res;
