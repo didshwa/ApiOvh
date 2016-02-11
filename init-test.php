@@ -2,3 +2,11 @@
 include("class/OvhApi.php");
 include("class/dns.php");
 include("class/domain.php");
+
+///Keys
+$AK = 'xxxxxxxxxxxx';
+$SK = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$CK = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$_SESSION["ck"] = $CK;
+///Initialisation
+$ovh = new OvhApi(OvhApi::$roots["ovh-eu"], $AK, $SK);
