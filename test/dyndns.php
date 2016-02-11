@@ -11,23 +11,23 @@ if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
 $dom 		= "domaine.com";
 $subDomain 	= "home";
 
-$dns = new Dns($ovh);
-$dns->setdomain($dom);
-$res_record_id = $dns->getdyndnsid($subDomain);
+$DynHost = new DynHost($ovh);
+$DynHost->setdomain($dom);
+$res_record_id = $DynHost->getdyndnsid($subDomain);
 $record_id = $res_record_id[0];
 
 if(empty($record_id)){
 	echo "vide";
 }else{
 	//echo $record_id;
-	$res = $dns->getdyndnsdata($record_id);
+	$res = $DynHost->getdyndnsdata($record_id);
 	
 	if ($IP == $res['ip'])
 	{
 		echo " \r\nL'ip n'a pas change.";
 	}else{
-		$dns->putdyndns($subDomain,$IP,$record_id);
+		$DynHost->putdyndns($subDomain,$IP,$record_id);
 	}
 	//print_r($res);
-	$dns->refresh();
+	$DynHost->refresh();
 }
