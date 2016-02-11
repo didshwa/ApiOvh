@@ -22,7 +22,6 @@ class DynHost{
   	}
 	public function putdyndns($subDomain,$target,$id)
   	{
-		// update with new quote
         $data = (object) array(
 			'ip' 	=> $target,
         	'subDomain' => $subDomain
@@ -33,9 +32,10 @@ class DynHost{
 
 	public function refresh()
   	{
-    	$res = $this->ovh->put('/domain/zone/' . $this->_domain_name . '/refresh');
+        $data = (object) array(
+			'zoneName' 	=>  $this->_domain_name
+        );	
+    	$res = $this->ovh->post('/domain/zone/' . $this->_domain_name . '/refresh', $data);
     	return $res;
   	}
-
 }
-?>
