@@ -1,5 +1,5 @@
 <?php
-class Dns{
+class DynHost{
     var $ovh;
     var $_domain_name;
 	public function __construct($_ovh)
